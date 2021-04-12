@@ -1,0 +1,276 @@
+* {
+    box-sizing: border-box;
+}
+.heading {
+    padding-bottom: 80px;
+}
+
+body {
+    height: 100vh;
+    margin: 0;
+    /* background-color: rgb(39, 179, 179); */
+    font-family: 'Cormorant Garamond', serif;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    position: relative;
+
+    /* background-image: linear-gradient(0deg,
+     rgb(247,247,246)24%, rgb(26, 116, 116)92%);
+
+    background-repeat: no-repeat; */
+    padding-bottom: 340px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: disco 10s ease-in-out infinite;
+}
+
+/* Centering a div */
+/* .title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+} */
+
+.img-fix {
+    width: 200px;
+    /* position: absolute;
+    top: 60%;
+    left: 45%; */
+}
+
+.music-container {
+   margin-top: -30px; 
+   background-color: aliceblue; 
+   border-radius: 20px;
+   box-shadow: 5px 15px 10px 0 rgba(16, 32, 8, 0.8);
+   display: flex;
+   padding: 20px 30px;
+   position: relative;
+   z-index: 10;
+   /* margin: 100px 0; */
+}
+.img-container {
+    position: relative;
+    width: 110px;
+}
+.img-container::after {
+    content: '';
+    background-color: lavender;
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    border-radius: 50%;
+    transform: translate(-50%, -150%);
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+.btn {
+    border: 0;
+    background: transparent;
+    /* position: relative; */
+    top: 5%;
+    cursor: pointer;
+    padding: 5px;
+    margin: 0 10px;
+    
+}
+.btn:focus {
+    outline: 0;
+}
+
+.img-container img {
+    width: inherit;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    animation: rotate 3s linear infinite;
+    animation-play-state: paused;
+}
+/* If the music contianer has a play state on it,
+then set animation play state to running*/
+.music-container.play .img-container img {
+    animation-play-state: running;
+}
+
+@keyframes rotate {
+   from {
+       transform: rotate(0deg);
+   } 
+   to {
+       transform: rotate(360deg);
+   }
+}
+@keyframes disco {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+
+/* @keyframes flip {
+    0% {
+        
+        transform: translateX(0);
+    }
+    25% {
+        
+        transform: translateX(100%);
+    }
+    50% {
+        
+        transform: translateX(-100%);
+    }
+    75% {
+        
+        transform: translateX(100%);
+    }
+    100% {
+        
+        transform: translateX(0);
+    }
+} */
+
+/* .container {
+    animation: flip 5s ease-in-out;
+    animation-iteration-count: infinite;
+} */
+
+.progress-container {
+    background: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0;
+    height: 4px;
+    width: 100%;
+}
+
+.progress-bar {
+    background: yellow;
+    border-radius: 5px;
+    height: 100%;
+    width: 50%;
+    transition: width 0.1s linear;
+
+    
+}
+.music-info {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 15px 15px 0 0;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    padding: 10px 10px 10px 150px;
+    opacity: 0;
+    width: (100% - 40px);
+    transform: translateY(0);
+    transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+
+ } 
+.music-info h4 {
+    margin: 0;
+}
+
+.music-container.play .music-info {
+    opacity: 1;
+    transform: translateY(-100%);
+}
+
+.progress-container {
+    background: white;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0;
+    height: 4px;
+    width: 100%;
+
+}
+.progress {
+    background-color: black;
+    border-radius: 5px;
+    height: 100%;
+    width: 50%; 
+    transition: width 0.1s linear;
+ }
+ /* The slider itself */
+.slider {
+    width: 100%; /* Full-width */
+    height: 25px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+    
+  }
+  
+  /* Mouse-over effects */
+  .slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+    cursor: pointer;
+  }
+
+
+/* Separate slide
+-------------------*/
+.slider-container {
+    width: 200px;
+    margin-top: 50px;
+    position: relative;
+    padding-top: 16px;
+    
+}
+  
+.slider {
+    width: 100%;
+    height: 20px;
+    opacity: 0.7;
+    border-radius: 12px;
+    box-shadow: 0 1px 10px 1px black;
+
+}
+
+.value1 {
+    padding-left: 15px;
+    font-size: larger;
+    
+}
+p {
+    margin: 0;
+}
+.slider::after {
+    content: '100';
+    position: absolute;
+    color: black;
+    left: 90%;
+    top: 0;
+}
+.slider::before {
+    content: '0';
+    position: absolute;
+    color: black;
+    left: 2%;
+    top: 0;
+}
+ 
+ 
+
+
+
